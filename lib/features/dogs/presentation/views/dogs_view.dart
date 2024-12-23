@@ -182,29 +182,30 @@ class DogsViewState extends State<DogsView> {
                         child: SingleChildScrollView(
                           physics: const AlwaysScrollableScrollPhysics(),
                           child: SizedBox(
-                              height: height,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  const Spacer(),
-                                  Image.asset(
-                                    'assets/images/icon.png',
-                                    height: 200,
-                                    fit: BoxFit.fill,
+                            height: height,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Spacer(),
+                                Image.asset(
+                                  'assets/images/icon.png',
+                                  height: 200,
+                                  fit: BoxFit.fill,
+                                ),
+                                const SizedBox(
+                                  height: 0,
+                                ),
+                                const Text(
+                                  'Cachorros não encontrados',
+                                  style: TextStyle(
+                                    fontSize: 19,
+                                    color: Palette.grayMedium,
                                   ),
-                                  const SizedBox(
-                                    height: 0,
-                                  ),
-                                  const Text(
-                                    'Cachorros não encontrados',
-                                    style: TextStyle(
-                                      fontSize: 19,
-                                      color: Palette.grayMedium,
-                                    ),
-                                  ),
-                                  const Spacer(),
-                                ],
-                              )),
+                                ),
+                                const Spacer(),
+                              ],
+                            ),
+                          ),
                         ),
                       )
                     : ListView.builder(
@@ -261,9 +262,11 @@ class DogsViewState extends State<DogsView> {
                             ),
                             onTap: () {
                               dogsDetailsViewModel.setDog(dogsViewModel.dogs[index]);
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const DogsDetailsView(),
-                              ));
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => const DogsDetailsView(),
+                                ),
+                              );
                             },
                           );
                         },

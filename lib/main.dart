@@ -5,14 +5,10 @@ import 'package:dogs/core/theme_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 Future<void> main() async {
   await dotenv.load();
-  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   runApp(const Dogs());
-  FlutterNativeSplash.remove();
 }
 
 class Dogs extends StatelessWidget {

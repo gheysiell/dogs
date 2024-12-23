@@ -112,7 +112,6 @@ class DogsDetailsViewState extends State<DogsDetailsView> {
             color: Palette.white,
           ),
         ),
-        backgroundColor: Palette.primary,
         leading: IconButton(
           onPressed: () {
             Navigator.of(context).pop();
@@ -124,6 +123,9 @@ class DogsDetailsViewState extends State<DogsDetailsView> {
           ),
           tooltip: 'Voltar',
         ),
+        backgroundColor: Palette.primary,
+        shadowColor: Palette.grayMedium,
+        elevation: 6,
       ),
       backgroundColor: Palette.white,
       body: ListView.builder(
