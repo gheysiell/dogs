@@ -114,7 +114,7 @@ class DogsDetailsViewState extends State<DogsDetailsView> {
         ),
         leading: IconButton(
           onPressed: () {
-            Navigator.of(context).pop();
+            Navigator.pop(context);
           },
           icon: const Icon(
             Icons.arrow_back_rounded,

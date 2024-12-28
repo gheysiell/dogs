@@ -10,4 +10,14 @@ class InputStyle {
       style: BorderStyle.solid,
     ),
   );
+
+  static OutlineInputBorder inputBorderSearch = OutlineInputBorder(
+    borderRadius: BorderRadius.circular(30),
+    gapPadding: 10,
+    borderSide: const BorderSide(
+      width: 2,
+      color: Palette.white,
+      style: BorderStyle.solid,
+    ),
+  );
 }

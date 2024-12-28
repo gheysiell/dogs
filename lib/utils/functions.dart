@@ -23,7 +23,9 @@ class Functions {
                 size: 30,
                 color: Palette.white,
               ),
-              onPressed: Navigator.of(context).pop,
+              onPressed: () {
+                Navigator.pop(context);
+              },
             ),
             backgroundColor: Palette.black,
           ),

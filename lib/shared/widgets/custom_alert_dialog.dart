@@ -18,7 +18,10 @@ class CustomAlertDialogView extends StatelessWidget {
     return AlertDialog(
       backgroundColor: Palette.white,
       surfaceTintColor: Palette.white,
-      actionsPadding: const EdgeInsets.only(right: 10, bottom: 6),
+      actionsPadding: const EdgeInsets.only(
+        right: 10,
+        bottom: 6,
+      ),
       title: Text(
         title,
         textAlign: TextAlign.center,
@@ -39,10 +42,14 @@ class CustomAlertDialogView extends StatelessWidget {
           onPressed: () => {
             Navigator.pop(context),
           },
-          style: TextButton.styleFrom(foregroundColor: Palette.blueSoft),
+          style: TextButton.styleFrom(
+            foregroundColor: Palette.blueSoft,
+          ),
           child: const Text(
             'OK',
-            style: TextStyle(color: Palette.blue),
+            style: TextStyle(
+              color: Palette.blue,
+            ),
           ),
         )
       ],

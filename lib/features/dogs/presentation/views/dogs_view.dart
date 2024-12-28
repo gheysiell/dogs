@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dogs/features/dogs/presentation/viewmodels/dogs_viewmodel.dart';
 import 'package:dogs/features/dogs_details/presentation/viewmodels/dogs_details_viewmodel.dart';
 import 'package:dogs/features/dogs_details/presentation/views/dogs_details_view.dart';
+import 'package:dogs/shared/input_style.dart';
 import 'package:dogs/shared/palette.dart';
 import 'package:dogs/utils/functions.dart';
 import 'package:flutter/material.dart';
@@ -79,24 +80,8 @@ class DogsViewState extends State<DogsView> {
                       horizontal: 10,
                       vertical: 8,
                     ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      gapPadding: 10,
-                      borderSide: const BorderSide(
-                        width: 2,
-                        color: Palette.white,
-                        style: BorderStyle.solid,
-                      ),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      gapPadding: 10,
-                      borderSide: const BorderSide(
-                        width: 2,
-                        color: Palette.white,
-                        style: BorderStyle.solid,
-                      ),
-                    ),
+                    focusedBorder: InputStyle.inputBorderSearch,
+                    enabledBorder: InputStyle.inputBorderSearch,
                     suffixIconConstraints: const BoxConstraints(
                       minHeight: 20,
                       minWidth: 40,
@@ -106,7 +91,6 @@ class DogsViewState extends State<DogsView> {
                             onPressed: () async {
                               controllerSearch.clear();
                               focusSearch.unfocus();
-                              // dogsViewModel.setSearchVisible(false);
                               await dogsViewModel.getDogs('');
                             },
                             icon: const Icon(
