@@ -6,6 +6,7 @@ import 'package:dogs/shared/input_style.dart';
 import 'package:dogs/shared/palette.dart';
 import 'package:dogs/utils/functions.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 class DogsView extends StatefulWidget {
@@ -150,9 +151,7 @@ class DogsViewState extends State<DogsView> {
         backgroundColor: Palette.white,
         body: dogsViewModel.loaderVisible
             ? const Center(
-                child: CircularProgressIndicator(
-                  color: Palette.primary,
-                ),
+                child: CircularProgressIndicator(),
               )
             : RefreshIndicator(
                 onRefresh: () async {
@@ -210,19 +209,25 @@ class DogsViewState extends State<DogsView> {
                                 );
                               },
                               style: TextButton.styleFrom(
-                                shape: const RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.zero,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12),
                                 ),
-                                fixedSize: const Size.fromWidth(70),
+                                fixedSize: const Size.fromWidth(80),
                                 padding: EdgeInsets.zero,
                               ),
                               child: CachedNetworkImage(
                                 imageUrl: dogsViewModel.dogs[index].imageUrl,
+                                imageBuilder: (context, imageProvider) {
+                                  return ClipRRect(
+                                    borderRadius: BorderRadius.circular(12),
+                                    child: Image(image: imageProvider),
+                                  );
+                                },
                                 placeholder: (context, url) => const CircularProgressIndicator(
-                                  color: Palette.primary,
+                                  strokeWidth: 3,
                                 ),
-                                errorWidget: (context, url, error) => const Icon(
-                                  Icons.image_outlined,
+                                errorWidget: (context, url, error) => const FaIcon(
+                                  FontAwesomeIcons.dog,
                                   color: Palette.grayLight,
                                   size: 40,
                                 ),

@@ -4,6 +4,7 @@ import 'package:dogs/shared/input_style.dart';
 import 'package:dogs/shared/palette.dart';
 import 'package:dogs/utils/functions.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 class DogsDetailsView extends StatefulWidget {
@@ -144,26 +145,30 @@ class DogsDetailsViewState extends State<DogsDetailsView> {
                   },
                   style: TextButton.styleFrom(
                     fixedSize: const Size.fromHeight(200),
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.zero,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
                     ),
                     padding: EdgeInsets.zero,
                   ),
                   child: CachedNetworkImage(
                     imageUrl: dogsDetailsViewModel.dog!.imageUrl,
-                    placeholder: (context, url) => const CircularProgressIndicator(
-                      color: Palette.primary,
-                    ),
-                    errorWidget: (context, url, error) => const Icon(
-                      Icons.image_outlined,
+                    imageBuilder: (context, imageProvider) {
+                      return ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: Image(image: imageProvider),
+                      );
+                    },
+                    placeholder: (context, url) => const CircularProgressIndicator(),
+                    errorWidget: (context, url, error) => const FaIcon(
+                      FontAwesomeIcons.dog,
                       color: Palette.grayLight,
-                      size: 40,
+                      size: 100,
                     ),
                   ),
                 )
               : Container(
                   margin: const EdgeInsets.only(
-                    top: 22,
+                    top: 30,
                   ),
                   child: TextFormField(
                     controller: textControllers[indexTextControllers],
@@ -184,7 +189,7 @@ class DogsDetailsViewState extends State<DogsDetailsView> {
                       label: Text(
                         textTitles[indexTextControllers],
                         style: const TextStyle(
-                          fontSize: 18,
+                          fontSize: 19,
                           color: Palette.grayMedium,
                         ),
                       ),
